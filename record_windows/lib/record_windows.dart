@@ -116,8 +116,7 @@ class RecordWindows extends RecordPlatform {
         '--channels=$numChannels',
         '--globcmd=listen',
         '--gain=6.0',
-        if (bufferLength != null)
-        '--capture-buffer=${bufferLength}'
+        if (bufferLength != null) '--capture-buffer=${bufferLength}',
         if (device != null) '--dev-capture=${device.id}',
         ..._getEncoderSettings(encoder, bitRate),
       ],
