@@ -48,6 +48,8 @@ abstract class RecordPlatform extends PlatformInterface {
   /// [numChannels]: The numbers of channels for the recording.
   /// 1 = mono, 2 = stereo, etc.
   ///
+  /// [bufferLength]: The milliseconds of when to capture the buffer. ONLY for Windows.
+  ///
   /// [device]: The device to be used for recording. If null, default device
   /// will be selected.
   Future<void> start({
@@ -56,6 +58,7 @@ abstract class RecordPlatform extends PlatformInterface {
     int bitRate = 128000,
     int samplingRate = 44100,
     int numChannels = 2,
+    int? bufferLength,
     InputDevice? device,
   });
 
