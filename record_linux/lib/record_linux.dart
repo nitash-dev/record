@@ -86,6 +86,7 @@ class RecordLinux extends RecordPlatform {
     int bitRate = 128000,
     int samplingRate = 44100,
     int numChannels = 2,
+    int? bufferLength,
     InputDevice? device,
   }) async {
     await stop();
