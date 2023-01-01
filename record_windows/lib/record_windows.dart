@@ -88,6 +88,7 @@ class RecordWindows extends RecordPlatform {
     int bitRate = 128000,
     int samplingRate = 44100,
     int numChannels = 2,
+    int? bufferLength,
     InputDevice? device,
   }) async {
     await stop();
@@ -115,6 +116,8 @@ class RecordWindows extends RecordPlatform {
         '--channels=$numChannels',
         '--globcmd=listen',
         '--gain=6.0',
+        if (bufferLength != null)
+        '--capture-buffer=${bufferLength}'
         if (device != null) '--dev-capture=${device.id}',
         ..._getEncoderSettings(encoder, bitRate),
       ],

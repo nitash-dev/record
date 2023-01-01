@@ -42,6 +42,7 @@ class MethodChannelRecord extends RecordPlatform {
     int bitRate = 128000,
     int samplingRate = 44100,
     int numChannels = 2,
+    int? bufferLength,
     InputDevice? device,
   }) {
     return _methodChannel.invokeMethod('start', {
@@ -50,6 +51,7 @@ class MethodChannelRecord extends RecordPlatform {
       'bitRate': bitRate,
       'samplingRate': samplingRate,
       'numChannels': numChannels,
+      'bufferLength': bufferLength,
       'device': device?.toMap(),
     });
   }

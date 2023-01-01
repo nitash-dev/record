@@ -15,6 +15,7 @@ class Record implements RecordPlatform {
     int bitRate = 128000,
     int samplingRate = 44100,
     int numChannels = 2,
+    int? bufferLength,
     InputDevice? device,
   }) {
     _log('Start recording');
@@ -24,6 +25,7 @@ class Record implements RecordPlatform {
       bitRate: bitRate,
       samplingRate: samplingRate,
       numChannels: numChannels,
+      bufferLength: bufferLength,
       device: device,
     );
   }
