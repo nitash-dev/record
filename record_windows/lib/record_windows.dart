@@ -106,6 +106,8 @@ class RecordWindows extends RecordPlatform {
     final file = File(path);
     if (file.existsSync()) await file.delete();
 
+    print(bufferLength);
+
     await _callFMedia(
       [
         '--notui',
@@ -203,7 +205,7 @@ class RecordWindows extends RecordPlatform {
         final rate = (bitRate ~/ 1000).clamp(6, 510);
         return ['--opus.bitrate=$rate'];
       case AudioEncoder.wav:
-        return [];
+        return ['--format=int16'];
       case AudioEncoder.vorbisOgg:
         return ['--vorbis.quality=6.0'];
       default:
